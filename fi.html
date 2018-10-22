@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loan calc</title>
+<style>
+	table, th, td {
+		border: 1px solid black;
+	}
+</style>
+</head>
+
+<body>
+<p>请输入下面三个数据：</p>
+<table cellspacing="0" style="height: 100px; width: 300px">
+	<tr>
+		<td style="text-align: right;">贷款总额：</td>
+		<td><input type="text" name="" id="Principal" value="1000000" style="margin-left: 10px; width: 130px" autocomplete="on"> 元</td>
+	</tr>
+	<tr>
+		<td style="text-align: right;">年 利 率：</td>
+		<td><input type="text" name="" id="Rate_in_year" value="4.41" style="margin-left: 10px; width: 130px" autocomplete="on"> % </td>
+	</tr>
+	<tr>
+		<td style="text-align: right;">贷款期限：</td>
+		<td><input type="text" name="" id="Number_of_year" value="30" style="margin-left: 10px; width: 130px" autocomplete="on"> 年 <br></td>
+	</tr>
+</table>
+
+<br>
+保留小数点位数：<input type="text" name="" id="valid_decimal" value="0" style="width:40px;">
+<br>
+<br>
+<button onclick="myFunction()">点击一下，计算等额本息</button>
+<br>
+<br>
+<table id="myTable">
+	<tr align="right">
+		<td>期数</td>
+		<td>月供本金</td>
+		<td>月供利息</td>
+		<td>月供</td>
+		<td>剩余本金</td>
+	</tr>		
+</table>
+
+
+<script type="text/javascript">
+	function myFunction() {
+		var P = new Array();
+		var row = new Array();
+		var cell = new Array();
+		P[0] = parseInt(document.getElementById("Principal").value);
+		R = document.getElementById("Rate_in_year").value / 100 / 12 ;
+		N = document.getElementById("Number_of_year").value * 12;
+
+		valid_decimal = document.getElementById("valid_decimal").value;
+
+		var table = document.getElementById('myTable');
+		for (var i = 1; i <= 360; i++) {
+			row[i] = table.insertRow(i);
+			row[i].align = "right";
+			for (var j = 0; j < 5; j++) {
+				cell[j] = row[i].insertCell(j);
+				if (j == 0) {
+					cell[j].innerHTML = i;
+				}
+				if (j == 1) {
+					cell[j].innerHTML = (P[0] * R * Math.pow((1+R),(i-1)) / (Math.pow((1+R),N) - 1)).toFixed(valid_decimal);
+				}
+				if (j == 2) {
+					cell[j].innerHTML = (R * (P[0] * (Math.pow((1+R),N) - Math.pow((1+R),(i-1))) / (Math.pow((1+R),N) - 1))).toFixed(valid_decimal);
+				}
+				if (j == 3) {
+					cell[j].innerHTML = (P[0] * Math.pow((1+R),N) * R / (Math.pow((1+R),N) -1)).toFixed(valid_decimal);
+				}
+				if (j == 4) {
+					// cell[j].innerHTML = (P[0] * Math.pow((1+R), i) - P[0] * Math.pow((1+R), N) * (Math.pow((1+R),i) -1) / (Math.pow((1+R), N)-1)).toFixed(0);
+					cell[j].innerHTML = (P[0] * (Math.pow((1+R),N) - Math.pow((1+R),i)) / (Math.pow((1+R),N) - 1)).toFixed(valid_decimal);
+				}
+			}
+		}
+
+		// document.getElementByTagName('tr').align = "right";
+	}
+</script>
+
+</body>
+</html>
