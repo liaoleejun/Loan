@@ -4,12 +4,16 @@
 
 **比较地道的翻译**：<br>
 
-&nbsp;&nbsp;等额本息: Fixed installment method<br>
-&nbsp;&nbsp;等额本金: Reducing installment method (Fixed Principal)
+<blockquote>
+等额本息: Fixed installment method<br>
+等额本金: Reducing installment method (Fixed Principal)
+</blockquote>
 
 **比较对应中文词义**：<br>
 
-&nbsp;&nbsp;等额本息: average capital plus interest method<br>
-&nbsp;&nbsp;等额本金: average capital method
+<blockquote>
+等额本息: average capital plus interest method<br>
+等额本金: average capital method
+</blockquote>
 
 采用哪一种，都合理。这里采用第一种来缩写: fi, ri，因为翻译短。
