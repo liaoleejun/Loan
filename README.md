@@ -2,12 +2,12 @@
 
 等额本息和等额本金的英文翻译，五花八门。
 
-**比较地道的翻译**：<br>
+**比较地道的翻译**：
 
     等额本息: Fixed installment method
     等额本金: Reducing installment method (Fixed Principal)
 
-**比较对应中文词义**：<br>
+**比较对应汉语的翻译**：
 
     等额本息: average capital plus interest method
     等额本金: average capital method
